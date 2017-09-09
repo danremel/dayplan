@@ -16,6 +16,7 @@ class Api::TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
       @task.update(task_params)
+    redirect_to api_task_path(@task)
   end
 
   def destroy
