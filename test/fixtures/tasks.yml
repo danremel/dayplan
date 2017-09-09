@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  priority_level: 1
+  completion_time: 2017-09-09 08:44:26
+
+two:
+  title: MyString
+  description: MyText
+  priority_level: 1
+  completion_time: 2017-09-09 08:44:26
