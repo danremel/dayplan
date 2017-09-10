@@ -5,7 +5,7 @@ class CreateTasks < ActiveRecord::Migration[5.1]
       t.text :description
       t.integer :priority_level
       t.time :completion_time
-      t.boolean :completed
+      t.boolean :completed, default: false
 
       t.timestamps
     end

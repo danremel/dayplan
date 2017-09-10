@@ -6,8 +6,29 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require_relative './day_data.rb'
+require_relative './task_data.rb'
 
+Day.destroy_all
 Task.destroy_all
 
-Task.create({ title: "Do the dishes", description: "Wash the plates and silverware", priority_level: 2, completion_time: '13:00:00', completed: false })
-Task.create({ title: "Walk the dogs", description: "Make sure they do their business, and clean up after them!", priority_level: 3, completion_time: '17:00:00', completed: false })
+day_data = get_day_data
+task_data = get_task_data
+
+task_data.each_pair do |day, tasks|
+  info = day_data[day]
+  current_day = Day.create!({
+    date: info[:date]
+  })
+
+  tasks.each do |task|
+    Task.create!({
+      title:            task[:title],
+      description:      task[:description],
+      priority_level:   task[:priority_level],
+      completion_time:  task[:completion_time],
+      completed:        task[:completed],
+      day:              current_day
+    })
+  end
+end

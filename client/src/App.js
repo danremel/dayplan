@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import TaskList from './components/TaskList';
+import DaysList from './components/DaysList';
+import Day from './components/Day';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 
@@ -8,7 +9,8 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <TaskList/>
+          <Route exact path="/" component={DaysList}/>
+          <Route exact path="/day" component={Day}/>
         </div>
       </Router>
     );

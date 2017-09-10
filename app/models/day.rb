@@ -1,3 +1,3 @@
 class Day < ApplicationRecord
-  belongs_to :task
+  has_many :tasks, dependent: :destroy
 end
